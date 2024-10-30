@@ -5,26 +5,26 @@ public record CreateProductResult(Guid Id);
 
 internal class CreateProductCommandHandler(IDocumentSession session) : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
-    public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
+  public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
+  {
+    // Create Product entity from command object
+
+    var product = new Product
     {
-        // Create Product entity from command object
+      Name = command.Name,
+      Category = command.Category,
+      Description = command.Description,
+      ImageFile = command.ImageFile,
+      Price = command.Price,
+    };
 
-        var product = new Product
-        {
-            Name = command.Name,
-            Category = command.Category,
-            Description = command.Description,
-            ImageFile = command.ImageFile,
-            Price = command.Price,
-        };
+    // TODO Save to database
 
-        // TODO Save to database
+    session.Store(product);
+    await session.SaveChangesAsync(cancellationToken);
 
-        session.Store(product);
-        await session.SaveChangesAsync(cancellationToken);
+    // Return CreateProductResult result
 
-        // Return CreateProductResult result
-
-        return new CreateProductResult(product.Id);
-    }
+    return new CreateProductResult(product.Id);
+  }
 }
