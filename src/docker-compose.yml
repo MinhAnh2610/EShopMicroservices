@@ -5,7 +5,7 @@ services:
   basket.db:
     image: postgres
 
-  distributed.cahe:
+  distributed.cache:
     image: redis
 
   catalog.api:
