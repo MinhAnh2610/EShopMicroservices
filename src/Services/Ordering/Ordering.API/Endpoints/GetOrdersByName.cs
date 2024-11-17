@@ -1,6 +1,4 @@
-﻿
-using Ordering.Application.Orders.Commands.CreateOrder;
-using Ordering.Application.Orders.Queries.GetOrdersByName;
+﻿using Ordering.Application.Orders.Queries.GetOrdersByName;
 
 namespace Ordering.API.Endpoints;
 
@@ -21,7 +19,7 @@ public class GetOrdersByName : ICarterModule
       return Results.Ok(response);
     })
     .WithName("GetOrdersByName")
-    .Produces<CreateOrderResult>(StatusCodes.Status200OK)
+    .Produces<GetOrdersByNameResult>(StatusCodes.Status200OK)
     .ProducesProblem(StatusCodes.Status400BadRequest)
     .ProducesProblem(StatusCodes.Status404NotFound)
     .WithSummary("Get Orders By Name")

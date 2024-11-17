@@ -1,5 +1,4 @@
 ﻿using BuildingBlocks.Pagination;
-using Ordering.Application.Orders.Commands.CreateOrder;
 using Ordering.Application.Orders.Queries.GetOrders;
 
 namespace Ordering.API.Endpoints;
@@ -21,7 +20,7 @@ public class GetOrders : ICarterModule
       return Results.Ok(response);
     })
     .WithName("GetOrders")
-    .Produces<CreateOrderResult>(StatusCodes.Status200OK)
+    .Produces<GetOrdersResult>(StatusCodes.Status200OK)
     .ProducesProblem(StatusCodes.Status400BadRequest)
     .ProducesProblem(StatusCodes.Status404NotFound)
     .WithSummary("Get Orders")

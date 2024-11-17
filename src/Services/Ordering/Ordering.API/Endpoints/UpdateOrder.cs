@@ -1,6 +1,4 @@
-﻿
-using Ordering.Application.Orders.Commands.CreateOrder;
-using Ordering.Application.Orders.Commands.UpdateOrder;
+﻿using Ordering.Application.Orders.Commands.UpdateOrder;
 
 namespace Ordering.API.Endpoints;
 
@@ -23,7 +21,7 @@ public class UpdateOrder : ICarterModule
       return Results.Ok(response);
     })
     .WithName("UpdateOrder")
-    .Produces<CreateOrderResult>(StatusCodes.Status200OK)
+    .Produces<UpdateOrderResult>(StatusCodes.Status200OK)
     .ProducesProblem(StatusCodes.Status400BadRequest)
     .WithSummary("Update Order")
     .WithDescription("Update Order");

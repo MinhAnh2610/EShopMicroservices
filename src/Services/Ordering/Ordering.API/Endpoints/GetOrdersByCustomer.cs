@@ -1,6 +1,4 @@
-﻿
-using Ordering.Application.Orders.Commands.CreateOrder;
-using Ordering.Application.Orders.Queries.GetOrdersByCustomer;
+﻿using Ordering.Application.Orders.Queries.GetOrdersByCustomer;
 
 namespace Ordering.API.Endpoints;
 
@@ -21,7 +19,7 @@ public class GetOrdersByCustomer : ICarterModule
       return Results.Ok(response);
     })
     .WithName("GetOrdersByCustomer")
-    .Produces<CreateOrderResult>(StatusCodes.Status200OK)
+    .Produces<GetOrdersByCustomerResult>(StatusCodes.Status200OK)
     .ProducesProblem(StatusCodes.Status400BadRequest)
     .ProducesProblem(StatusCodes.Status404NotFound)
     .WithSummary("Get Orders By Customer")
