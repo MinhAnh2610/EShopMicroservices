@@ -8,7 +8,7 @@ public class BasketCheckoutEventHandler(ISender sender, ILogger<BasketCheckoutEv
 {
   public async Task Consume(ConsumeContext<BasketCheckoutEvent> context)
   {
-    logger.LogInformation("Integration Event handled: {Integration Event}", context.Message.GetType().Name);
+    logger.LogInformation("Integration Event Handled: {Integration Event}", context.Message.GetType().Name);
 
     var command = MapToCreateOrderCommand(context.Message);
     await sender.Send(command);
