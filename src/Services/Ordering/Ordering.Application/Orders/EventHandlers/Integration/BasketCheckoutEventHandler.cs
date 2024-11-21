@@ -12,7 +12,6 @@ public class BasketCheckoutEventHandler(ISender sender, ILogger<BasketCheckoutEv
 
     var command = MapToCreateOrderCommand(context.Message);
     await sender.Send(command);
-
   }
 
   private CreateOrderCommand MapToCreateOrderCommand(BasketCheckoutEvent message)
