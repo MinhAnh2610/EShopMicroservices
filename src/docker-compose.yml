@@ -15,25 +15,29 @@ services:
     image: rabbitmq:management
 
   catalog.api:
-    image: ${DOCKER_REGISTRY-}catalogapi
+    image: ${DOCKER_REGISTRY-}catalog.api
     build:
       context: .
       dockerfile: Services/Catalog/Catalog.API/Dockerfile
 
   basket.api:
-    image: ${DOCKER_REGISTRY-}basketapi
+    image: ${DOCKER_REGISTRY-}basket.api
     build:
       context: .
       dockerfile: Services/Basket/Basket.API/Dockerfile
 
   discount.grpc:
-    image: ${DOCKER_REGISTRY-}discountgrpc
+    image: ${DOCKER_REGISTRY-}discount.grpc
     build:
       context: .
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
 
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}ordering.api
+    build:
+      context: .
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+
 volumes:
   postgres_catalog:
   postgres_basket:
-
-
