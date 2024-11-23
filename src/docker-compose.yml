@@ -1,3 +1,5 @@
+name: "e_commerce_microservices"
+
 services:
   catalog.db:
     image: postgres
