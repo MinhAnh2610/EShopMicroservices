@@ -43,3 +43,5 @@ services:
 volumes:
   postgres_catalog:
   postgres_basket:
+  redis_distributed_cache:
+  rabbitmq_message_broker:

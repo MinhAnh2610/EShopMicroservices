@@ -28,6 +28,8 @@ services:
     restart: always
     ports:
      - "6379:6379" 
+    volumes:
+     - redis_distributed_cache:/data
 
   order.db:
     container_name: order.db
@@ -48,6 +50,8 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672" 
+    volumes:
+      - rabbitmq_message_broker:/var/lib/rabbitmq
 
   catalog.api:
     environment:
