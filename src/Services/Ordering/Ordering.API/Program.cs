@@ -16,8 +16,6 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseHttpsRedirection();
-
 app.UseApiServices();
 
 if (app.Environment.IsDevelopment())
