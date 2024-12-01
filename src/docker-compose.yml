@@ -46,9 +46,14 @@ services:
       context: .
       dockerfile: ApiGateways/YarpApiGateway/Dockerfile
 
+  shopping.web:
+    image: ${DOCKER_REGISTRY-}shopping.web
+    build:
+      context: .
+      dockerfile: WebApps/Shopping.Web/Dockerfile
+
 volumes:
   postgres_catalog:
   postgres_basket:
   redis_distributed_cache:
   rabbitmq_message_broker:
-
